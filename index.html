@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <title>Kaio Pet Shop</title>
+</head>
+
+<body>
+    <!-- Cabeçalho -->
+    <header id="header">
+        <div class="header-container">
+            <a href="#home" class="brand-mobile">Kaio <span>Pet</span></a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#home" class="link-header active">Home</a>
+                <a href="#sobre" class="link-header">Sobre nós</a>
+                <a href="#produtos" class="link-header">Produtos</a>
+                <a href="#servicos" class="link-header">Serviços</a>
+                <a href="#contato" class="link-header">Contato</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="cart-btn" id="open-cart-btn" title="Carrinho de compras">
+                    🛒 <span id="cart-count">0</span>
+                </button>
+                <button class="button-header" id="open-login-btn">Entrar</button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção Home (Hero) -->
+    <main id="home" class="hero-section">
+        <img src="./img/we-care.png"
+             onerror="this.src='https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80'"
+             alt="Logo Kaio Pet Shop" class="img-logo">
+
+        <section class="hero-content">
+            <h1>Cuidamos</h1>
+            <h2>Do seu pet</h2>
+            <p>
+                Temos a melhor estrutura da região para receber o seu Pet com o melhor conforto possível em todos os serviços.
+                <br><br>
+                Prezamos por um ótimo atendimento para mantermos uma relação excelente.
+                <br><br>
+                Nossos profissionais são extremamente qualificados para atender da melhor forma possível você e seu Pet.
+            </p>
+            <div class="hero-buttons">
+                <a href="#servicos" class="button-main">Saiba mais</a>
+                <button class="button-secondary" onclick="abrirAgendamento('Banho e Tosa')">Agendar Agora</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Seção Sobre Nós -->
+    <section id="sobre" class="section-container bg-light">
+        <div class="section-header">
+            <span class="section-tag">Quem Somos</span>
+            <h2 class="section-title">Sobre Nós</h2>
+            <p class="section-subtitle">Amor, respeito e tecnologia veterinária reunidos em um só lugar.</p>
+        </div>
+
+        <div class="sobre-grid">
+            <div class="sobre-texto">
+                <h3>Mais de 10 anos cuidando do seu melhor amigo</h3>
+                <p>
+                    O <strong>Kaio Pet Shop</strong> nasceu da paixão pelos animais e da necessidade de oferecer um espaço seguro, acolhedor e completo para cães e gatos.
+                </p>
+                <p>
+                    Contamos com ambiente climatizado, produtos hipoalergênicos de primeira linha e monitoramento veterinário em tempo integral.
+                </p>
+
+                <div class="sobre-stats">
+                    <div class="stat-box">
+                        <strong>+5.000</strong>
+                        <span>Pets atendidos</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>100%</strong>
+                        <span>Produtos seguros</span>
+                    </div>
+                    <div class="stat-box">
+                        <strong>24h</strong>
+                        <span>Plantão Vet</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sobre-cards">
+                <div class="info-card">
+                    <h4>🐾 Equipe Especializada</h4>
+                    <p>Veterinários e tosadores certificados e treinados para lidar com pets de todos os portes e temperamentos.</p>
+                </div>
+                <div class="info-card">
+                    <h4>🏥 Estrutura Moderna</h4>
+                    <p>Salas individuais de banho, centro cirúrgico equipado e área de recreação livre de estresse.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Produtos -->
+    <section id="produtos" class="section-container">
+        <div class="section-header">
+            <span class="section-tag">Pet Store</span>
+            <h2 class="section-title">Nossos Produtos</h2>
+            <p class="section-subtitle">Tudo o que seu pet precisa para crescer saudável e feliz.</p>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="todos">Todos</button>
+            <button class="filter-btn" data-filter="racao">Rações</button>
+            <button class="filter-btn" data-filter="brinquedos">Brinquedos</button>
+            <button class="filter-btn" data-filter="higiene">Higiene</button>
+        </div>
+
+        <div class="cards-grid" id="produtos-grid">
+            <div class="card-item" data-category="racao">
+                <div class="card-badge">Mais Vendido</div>
+                <div class="card-icon">🦴</div>
+                <h3>Ração Super Premium 15kg</h3>
+                <p>Nutrição completa para cães adultos com ômega 3 e 6 para pelos brilhantes.</p>
+                <span class="price">R$ 189,90</span>
+                <button class="btn-card" onclick="adicionarCarrinho('Ração Super Premium 15kg', 189.90)">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="card-item" data-category="brinquedos">
+                <div class="card-icon">🎾</div>
+                <h3>Kit Mordedor Resistente</h3>
+                <p>Borracha atóxica ideal para aliviar o estresse e limpar os dentes do seu pet.</p>
+                <span class="price">R$ 49,90</span>
+                <button class="btn-card" onclick="adicionarCarrinho('Kit Mordedor Resistente', 49.90)">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="card-item" data-category="higiene">
+                <div class="card-icon">🧴</div>
+                <h3>Shampoo Neutro Hipoalergênico</h3>
+                <p>Fórmula suave com extrato de aveia para peles sensíveis. 500ml.</p>
+                <span class="price">R$ 38,50</span>
+                <button class="btn-card" onclick="adicionarCarrinho('Shampoo Neutro Hipoalergênico', 38.50)">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="card-item" data-category="racao">
+                <div class="card-icon">🐟</div>
+                <h3>Ração Gatos Castrados 10kg</h3>
+                <p>Controle de peso e saúde do trato urinário com sabor salmão.</p>
+                <span class="price">R$ 154,00</span>
+                <button class="btn-card" onclick="adicionarCarrinho('Ração Gatos Castrados 10kg', 154.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Serviços -->
+    <section id="servicos" class="section-container bg-light">
+        <div class="section-header">
+            <span class="section-tag">Cuidado Completo</span>
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Escolha o serviço ideal e agende online em poucos segundos.</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card-item service-card">
+                <div class="card-icon">🛁</div>
+                <h3>Banho & Tosa</h3>
+                <p>Banho relaxante com água morna, corte de unhas, limpeza de ouvidos e tosa higiênica ou na tesoura.</p>
+                <span class="price">A partir de R$ 65,00</span>
+                <button class="btn-service" onclick="abrirAgendamento('Banho & Tosa')">Agendar Serviço</button>
+            </div>
+
+            <div class="card-item service-card">
+                <div class="card-icon">🩺</div>
+                <h3>Consulta Veterinária</h3>
+                <p>Check-up completo, exames laboratoriais e acompanhamento preventivo com especialistas.</p>
+                <span class="price">R$ 120,00</span>
+                <button class="btn-service" onclick="abrirAgendamento('Consulta Veterinária')">Agendar Serviço</button>
+            </div>
+
+            <div class="card-item service-card">
+                <div class="card-icon">💉</div>
+                <h3>Vacinação Importada</h3>
+                <p>Aplicação de vacinas V8, V10, Antirrábica e Gripe com carteirinha digital atualizada.</p>
+                <span class="price">A partir de R$ 85,00</span>
+                <button class="btn-service" onclick="abrirAgendamento('Vacinação Importada')">Agendar Serviço</button>
+            </div>
+
+            <div class="card-item service-card">
+                <div class="card-icon">🏡</div>
+                <h3>Hotelzinho & Creche</h3>
+                <p>Hospedagem monitorada 24h com atividades recreativas para quando você precisar viajar.</p>
+                <span class="price">R$ 95,00 / diária</span>
+                <button class="btn-service" onclick="abrirAgendamento('Hotelzinho & Creche')">Agendar Serviço</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contato" class="section-container">
+        <div class="section-header">
+            <span class="section-tag">Fale Conosco</span>
+            <h2 class="section-title">Contato</h2>
+            <p class="section-subtitle">Tire suas dúvidas ou faça uma visita à nossa loja.</p>
+        </div>
+
+        <div class="contato-grid">
+            <div class="contato-info">
+                <div class="contato-item">
+                    <strong>📍 Endereço:</strong>
+                    <p>Av. dos Pets, 1234 - Centro</p>
+                </div>
+                <div class="contato-item">
+                    <strong>📞 Telefone / WhatsApp:</strong>
+                    <p>(11) 99999-8888</p>
+                </div>
+                <div class="contato-item">
+                    <strong>⏰ Horário de Funcionamento:</strong>
+                    <p>Segunda a Sábado: 08h às 20h<br>Emergências Veterinárias: 24 horas</p>
+                </div>
+            </div>
+
+            <form class="contato-form" id="form-contato">
+                <input type="text" id="contato-nome" placeholder="Seu nome completo" required>
+                <input type="email" id="contato-email" placeholder="Seu e-mail" required>
+                <input type="tel" id="contato-telefone" placeholder="Seu WhatsApp (opcional)">
+                <textarea id="contato-mensagem" rows="4" placeholder="Como podemos ajudar você e seu pet?" required></textarea>
+                <button type="submit" class="button-main btn-full">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>© 2026 Kaio Pet Shop - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- MODAL 1: Entrar / Cadastro -->
+    <div class="modal-overlay" id="modal-login">
+        <div class="modal-box">
+            <button class="modal-close" onclick="fecharModais()">&times;</button>
+            <div class="modal-tabs">
+                <button class="tab-btn active" id="tab-login" onclick="alternarAbaLogin('login')">Entrar</button>
+                <button class="tab-btn" id="tab-cadastro" onclick="alternarAbaLogin('cadastro')">Criar Conta</button>
+            </div>
+
+            <form id="form-login">
+                <h3 id="login-titulo">Bem-vindo de volta!</h3>
+                <div id="campo-nome-cadastro" style="display: none;">
+                    <input type="text" id="login-nome" placeholder="Seu nome">
+                </div>
+                <input type="email" id="login-email" placeholder="Seu e-mail" required>
+                <input type="password" id="login-senha" placeholder="Sua senha" required>
+                <button type="submit" class="button-header btn-full" id="btn-submit-login">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Agendamento de Serviços -->
+    <div class="modal-overlay" id="modal-agendamento">
+        <div class="modal-box">
+            <button class="modal-close" onclick="fecharModais()">&times;</button>
+            <h3>Agendar Serviço</h3>
+            <form id="form-agendamento">
+                <label>Serviço escolhido:</label>
+                <select id="agendamento-servico" required>
+                    <option value="Banho & Tosa">Banho & Tosa</option>
+                    <option value="Consulta Veterinária">Consulta Veterinária</option>
+                    <option value="Vacinação Importada">Vacinação Importada</option>
+                    <option value="Hotelzinho & Creche">Hotelzinho & Creche</option>
+                </select>
+                <input type="text" id="agendamento-pet" placeholder="Nome do seu Pet" required>
+                <input type="date" id="agendamento-data" required>
+                <input type="time" id="agendamento-hora" required>
+                <button type="submit" class="button-main btn-full">Confirmar Agendamento</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: Carrinho de Compras -->
+    <div class="modal-overlay" id="modal-carrinho">
+        <div class="modal-box">
+            <button class="modal-close" onclick="fecharModais()">&times;</button>
+            <h3>Seu Carrinho 🛒</h3>
+            <div id="carrinho-itens" class="carrinho-lista">
+                <p class="carrinho-vazio">Seu carrinho está vazio.</p>
+            </div>
+            <div class="carrinho-footer">
+                <strong>Total: <span id="carrinho-total">R$ 0,00</span></strong>
+                <button class="button-main btn-full" onclick="finalizarCompra()">Finalizar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notificação Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
